@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{9C7A6D65-5478-419D-9F4A-B6E9B6AFB58D}"
+	ProjectSection(SolutionItems) = preProject
+		dotfiles\.editorconfig = dotfiles\.editorconfig
+		dotfiles\.gitignore = dotfiles\.gitignore
+		dotfiles\Directory.Build.props = dotfiles\Directory.Build.props
+		dotfiles\Directory.Build.targets = dotfiles\Directory.Build.targets
+		dotfiles\dotnet.ruleset = dotfiles\dotnet.ruleset
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E3055632-1F1B-4E64-B7AE-FAD3BF4E7BF7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4F575D9E-408E-42E8-ACAE-8C76C3381F17}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StructuredLogging.Templates", "src\StructuredLogging.Templates\StructuredLogging.Templates.csproj", "{FB7EF0C5-3359-4DBF-A5AC-45985830B932}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB7EF0C5-3359-4DBF-A5AC-45985830B932}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB7EF0C5-3359-4DBF-A5AC-45985830B932}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB7EF0C5-3359-4DBF-A5AC-45985830B932}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB7EF0C5-3359-4DBF-A5AC-45985830B932}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FB7EF0C5-3359-4DBF-A5AC-45985830B932} = {E3055632-1F1B-4E64-B7AE-FAD3BF4E7BF7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		RESX_NeutralResourcesLanguage = en-US
+		SolutionGuid = {325B6E14-341D-40DB-8FB3-7821E23C9B44}
+	EndGlobalSection
+EndGlobal
