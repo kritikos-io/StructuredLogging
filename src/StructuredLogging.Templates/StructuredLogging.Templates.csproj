@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <RepositoryUrl>https://github.com/kritikos-io/StructuredLogging</RepositoryUrl>
+    <Description>Provides a strongly typed template for structured logging as well as sample templates for common applications</Description>
   </PropertyGroup>
 
   <ItemGroup>
