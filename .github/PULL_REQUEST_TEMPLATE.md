@@ -6,6 +6,7 @@ Clean up this template and provide relevant information about your pull request!
 
 * [ ] Have you followed the guidelines in our [Contributing](../.github/CONTRIBUTING.md) document?
 * [ ] Have you checked to ensure there aren't other open [Pull Requests](../../../pulls) for the same update/change?
+* [ ] Does your pull request target an open issue?
 
 ### New Feature Submissions
 
