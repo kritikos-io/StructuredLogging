@@ -3,7 +3,7 @@ name: "\U0001F41B Bug Report"
 about: "If something isn't working as expected."
 title: ''
 labels: 'i: bug, i: needs triage'
-assignees: ''
+assignees: 'akritikos'
 ---
 
 ## Bug Report
@@ -17,10 +17,12 @@ Clean up this template after reading it and provide relevant information about t
 * [ ] Are you reporting to the correct repository?
 * [ ] Did you perform a cursory search?
 
-**Current Behavior**
+## Current Behavior
+
 A clear and concise description of the behavior.
 
-**Expected behavior/code**
+## Expected behavior/code
+
 A clear and concise description of what you expected to happen (or code).
 
 ### Environment
