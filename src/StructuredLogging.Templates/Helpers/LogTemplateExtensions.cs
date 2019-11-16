@@ -24,7 +24,7 @@ namespace Kritikos.StructuredLogging.Templates.Helpers
 			var hash = murmur.ComputeHash(bytes);
 			var numerichash = BitConverter.ToUInt32(hash, 0);
 
-			return $"{numerichash:X}";
+			return $"${numerichash:X}";
 		}
 	}
 }
