@@ -1,10 +1,11 @@
 namespace Kritikos.LoggingTemplates.Tests
 {
 	using System;
+	using System.IO;
 	using System.Reflection;
 
 	using Kritikos.StructuredLogging.Templates;
-
+	using Microsoft.Extensions.Configuration;
 	using Seq.Api;
 
 	using Serilog;
@@ -21,8 +22,14 @@ namespace Kritikos.LoggingTemplates.Tests
 		static Initializer()
 		{
 			var switchLevel = new LoggingLevelSwitch();
-			var seqUri = Environment.GetEnvironmentVariable("Seq:Uri");
-			var seqKey = Environment.GetEnvironmentVariable("Seq:ApiKey");
+			var config = new ConfigurationBuilder()
+				.SetBasePath(Directory.GetCurrentDirectory())
+				.AddJsonFile("appsettings.json",true,true)
+				.AddEnvironmentVariables()
+				.Build();
+
+			var seqUri = config["Seq:Uri"];
+			var seqKey = config["Seq:ApiKey"];
 
 			Log.Logger = new LoggerConfiguration()
 				.Enrich.FromLogContext()
