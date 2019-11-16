@@ -95,9 +95,7 @@ jobs:
   dependsOn:
     - Setup
   variables:
-    - group: Environment
-    - name: Version
-      value: $[ dependencies.Setup.outputs['versioning.gitVersion'] ]
+    Version: $[ dependencies.Setup.outputs['versioning.gitVersion'] ]
   steps:
   - checkout: self
     fetchDepth: 1
