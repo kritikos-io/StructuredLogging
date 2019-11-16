@@ -24,12 +24,13 @@ jobs:
     vmImage: windows-latest
   steps:
   - task: DotNetCoreCLI@2
+    displayName: Restoring nugets
     inputs:
       command: 'restore'
       noCache: false
       restoreDirectory: '$(Pipeline.Workspace)/.nuget/packages'
-      verbosityRestore: 'Normal'
-    displayName: Restores nugets
+      arguments: -Project2ProjectTimeOut 20
+      verbosityRestore: Normal
 
   - task: PowerShell@2
     inputs:
