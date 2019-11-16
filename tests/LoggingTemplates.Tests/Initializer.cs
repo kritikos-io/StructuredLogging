@@ -23,8 +23,6 @@ namespace Kritikos.LoggingTemplates.Tests
 		{
 			var switchLevel = new LoggingLevelSwitch();
 			var config = new ConfigurationBuilder()
-				.SetBasePath(Directory.GetCurrentDirectory())
-				.AddJsonFile("appsettings.json",true,true)
 				.AddEnvironmentVariables()
 				.Build();
 
