@@ -1,5 +1,6 @@
 namespace Kritikos.LoggingTemplates.Tests
 {
+	using System;
 	using System.Reflection;
 
 	using Kritikos.StructuredLogging.Templates;
@@ -20,8 +21,8 @@ namespace Kritikos.LoggingTemplates.Tests
 		static Initializer()
 		{
 			var switchLevel = new LoggingLevelSwitch();
-			var seqUri = "https://logs.kritikos.io:443";
-			var seqKey = "2KQu4uEb5G0sM6NhfZJm";
+			var seqUri = Environment.GetEnvironmentVariable("Seq:Uri");
+			var seqKey = Environment.GetEnvironmentVariable("Seq:ApiKey");
 
 			Log.Logger = new LoggerConfiguration()
 				.Enrich.FromLogContext()
