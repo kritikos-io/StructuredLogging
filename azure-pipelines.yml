@@ -23,18 +23,37 @@ jobs:
   pool:
     vmImage: windows-latest
   steps:
-  - powershell: |
-      dotnet tool install --tool-path .. gitversion.tool
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'restore'
+      noCache: false
+      restoreDirectory: '$(Pipeline.Workspace)/.nuget/packages'
+      verbosityRestore: 'Normal'
+    displayName: Restores nugets
+
+  - task: PowerShell@2
+    inputs:
+      targetType: inline
+      script: |
+        dotnet tool install --tool-path .. gitversion.tool
+      pwsh: true
     displayName: Installing Dotnet Tools
 
-  - powershell: |
-      $git = $(../dotnet-gitversion /output json /showvariable NugetVersion)
-      echo "##vso[task.setvariable variable=gitVersion;isOutput=true]$(../dotnet-gitversion /output json /showvariable SemVer)"
-    name: versioning
+  - task: PowerShell@2
+    inputs:
+      targetType: inline
+      script: |
+        $git = $(../dotnet-gitversion /output json /showvariable NugetVersion)
+        echo "##vso[task.setvariable variable=gitVersion;isOutput=true]$(../dotnet-gitversion /output json /showvariable SemVer)"
+      pwsh: true
     displayName: Setting version from git
 
-  - powershell: |
-      echo "Current version: $(versioning.gitVersion)"
+  - task: PowerShell@2
+    inputs:
+      targetType: inline
+      script: |
+        echo "Current version: $(versioning.gitVersion)"
+      pwsh: true
     displayName: Shows currently compiling version
 
 - job: Building
