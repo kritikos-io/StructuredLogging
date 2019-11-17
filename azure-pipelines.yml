@@ -86,6 +86,8 @@ jobs:
     displayName: Restoring nugets
     inputs:
       command: 'restore'
+      noCache: false
+      restoreDirectory: '$(Pipeline.Workspace)/.nuget/packages'
       arguments: -Project2ProjectTimeOut 20
       verbosityRestore: Normal
 
@@ -134,12 +136,18 @@ jobs:
   - checkout: self
     fetchDepth: 1
 
+  - task: DownloadPipelineArtifact@2
+    inputs:
+      artifactName: Nugets
+      targetPath: '$(Pipeline.Workspace)/.nuget/packages'
+
   - task: DotNetCoreCLI@2
-    name: dotnetRestore
     displayName: Restoring nugets
     inputs:
       command: 'restore'
-      arguments: -Project2ProjectTimeOut 20 --packages "$(Build.BinariesDirectory)/.nuget)
+      noCache: false
+      restoreDirectory: '$(Pipeline.Workspace)/.nuget/packages'
+      arguments: -Project2ProjectTimeOut 20
       verbosityRestore: Normal
 
   - task: DotNetCoreCLI@2
