@@ -1,7 +1,5 @@
 namespace Kritikos.StructuredLogging.Templates
 {
-	using Kritikos.StructuredLogging.Templates.Base;
-
 	/// <summary>
 	/// Logging templates for generic application usage.
 	/// </summary>
@@ -10,19 +8,22 @@ namespace Kritikos.StructuredLogging.Templates
 		/// <summary>
 		/// Unexpected exception occurred.
 		/// </summary>
-		public static LogTemplate UnhandledException
-			=> new LogTemplate("Unhandled Exception occured: {$Error}. Terminating: {Terminating}");
+		public const string UnhandledException = "Unhandled Exception occured: {$Error}. Terminating: {Terminating}";
 
 		/// <summary>
 		/// Action requires authentication.
 		/// </summary>
-		public static LogTemplate UnauthorizedAction
-			=> new LogTemplate("User has not authenticated or token has expired! {@Error}");
+		public const string UnauthorizedAction = "User has not authenticated or token has expired!";
+
+		/// <summary>
+		/// Service is not responding to queries.
+		/// </summary>
+		public const string ServiceUnreachable = "Could not contact service: {$Error}";
 
 		/// <summary>
 		/// Action requires authorization and user has not provided any.
 		/// </summary>
-		public static LogTemplate ForbiddenAction
-			=> new LogTemplate("Insufficient permissions for requested action! {@Context}");
+		public const string ForbiddenAction =
+			"Insufficient permissions for requested action! {@User} tried to {@Context}";
 	}
 }
