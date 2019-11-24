@@ -143,6 +143,7 @@ jobs:
     - Test
   steps:
   - checkout: none
+    condition: ne(variables['Build.Reason'], 'PullRequest')
   - task: DownloadPipelineArtifact@2
     displayName: Fetch nugets
     inputs:
@@ -150,7 +151,6 @@ jobs:
       artifactName: 'nuget'
       targetPath: $(build.artifactStagingDirectory)/nuget
   - task: DotNetCoreCLI@2
-    condition: ne(variables['Build.Reason'], 'PullRequest')
     displayName: Push Nugets
     inputs:
       workingDirectory: $(build.artifactStagingDirectory)/nuget
