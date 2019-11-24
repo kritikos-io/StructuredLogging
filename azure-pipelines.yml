@@ -84,7 +84,7 @@ jobs:
     - Version
   variables:
     Version: $[ dependencies.Version.outputs['versioning.gitVersion'] ]
-    Seq__ApiKey: $(Seq__ApiKey)
+    Seq__ApiKey: $(KritikosApiKey)
     GITHUB_KEY: $(GitHubApiKey)
     SONAR_ORG: $(SonarCloudOrganization)
     SONAR_KEY: $(SonarCloudApiKey)
