@@ -150,6 +150,7 @@ jobs:
       artifactName: 'nuget'
       targetPath: $(build.artifactStagingDirectory)/nuget
   - task: DotNetCoreCLI@2
+    condition: ne(variables['Build.Reason'], 'PullRequest')
     displayName: Push Nugets
     inputs:
       workingDirectory: $(build.artifactStagingDirectory)/nuget
